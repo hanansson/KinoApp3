@@ -8,6 +8,16 @@ public class Liste {
 
     public ArrayList<Filmeintrag> gesamtEinträge = new java.util.ArrayList<Filmeintrag>();
 
+    public ArrayList<Filmeintrag> getGesamtEinträge() {
+        return gesamtEinträge;
+    }
+
+    public void setGesamtEinträge(ArrayList<Filmeintrag> gesamtEinträge) {
+        this.gesamtEinträge = gesamtEinträge;
+    }
+
+
+
     public void Suchen() throws IOException {
 
         String zeile = null;
@@ -26,6 +36,7 @@ public class Liste {
                 Suche s = new Suche();
                 s.suche1 (zeile, eingabe, eingabe1, eingabe2, eingabe3, eingabe4, neuerFilmeintrag);
                 if (neuerFilmeintrag.name != null){
+                    //random Bedingung geht sicherlich auch schöner.
                     gesamtEinträge.add(neuerFilmeintrag);
                 }
             }
