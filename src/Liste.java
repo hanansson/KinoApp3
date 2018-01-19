@@ -8,11 +8,7 @@ public class Liste {
 
     public ArrayList<Filmeintrag> gesamtEinträge = new java.util.ArrayList<Filmeintrag>();
 
-        public static void main (String[] args) throws IOException {
-            Liste liste = new Liste();
-        }
-
-    public Liste() throws IOException {
+    public void Suchen() throws IOException {
 
         String zeile = null;
 
@@ -26,41 +22,16 @@ public class Liste {
         BufferedReader brx = new BufferedReader(new FileReader("filmdaten.txt"));
         while(brx.ready()) {
             if((zeile = brx.readLine()) != null) {
-                suche1(zeile, eingabe, eingabe1, eingabe2, eingabe3, eingabe4);
+                Filmeintrag neuerFilmeintrag = new Filmeintrag();
+                SuchenUndErstellen s = new SuchenUndErstellen();
+                s.suche1 (zeile, eingabe, eingabe1, eingabe2, eingabe3, eingabe4, neuerFilmeintrag);
+                if (neuerFilmeintrag.name != null){
+                    gesamtEinträge.add(neuerFilmeintrag);
+                }
             }
         }
         for (Filmeintrag f : gesamtEinträge) {
             System.out.println("Name: " + f.name + " Genre: " + f.genre + " Kino" + f.kino + " Zeit:" + f.zeit + " Preis:" + f.preis);
         }
-    }
-
-    public void suche1 (String zeile, String eingabe, String eingabe1, String eingabe2, String eingabe3, String eingabe4) {
-        String searchChar = ";";
-
-        //-->neue variable anlegen. die variable ist = zeile .wir arbeiten nicht mehr mit ; sondern mit einem anderen zeichen (taste gedrückt ohne caps)
-        String[] teile = zeile.split(searchChar);
-            //suchfelder stehen von anfang an dort, und erscheinen nicht erst bei eingabe des vorherigen suchfeldes
-        if (teile[0].toLowerCase().contains(eingabe.toLowerCase()) && teile[1].toLowerCase().contains(eingabe1.toLowerCase()) && teile[2].toLowerCase().contains(eingabe2.toLowerCase()) && teile[3].toLowerCase().contains(eingabe3.toLowerCase()) && teile[4].toLowerCase().contains(eingabe4.toLowerCase())) {
-            zeileerstellen(zeile);
-        }
-
-    }
-
-    public void zeileerstellen (String zeile) {
-
-        String[] filmeintragAttribute = zeile.split(";");
-
-                Filmeintrag neuerFilmeintrag = new Filmeintrag();
-
-
-        neuerFilmeintrag.name= filmeintragAttribute[0];
-        neuerFilmeintrag.genre= filmeintragAttribute[1];
-        neuerFilmeintrag.kino= filmeintragAttribute[2];
-        filmeintragAttribute[3] = filmeintragAttribute[3].substring(filmeintragAttribute[3].indexOf("§") +1, filmeintragAttribute[3].indexOf("$"));
-        neuerFilmeintrag.zeit= filmeintragAttribute[3];
-        neuerFilmeintrag.preis= filmeintragAttribute[4];
-
-        gesamtEinträge.add(neuerFilmeintrag);
-
     }
 }

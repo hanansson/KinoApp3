@@ -4,9 +4,6 @@ import java.io.InputStreamReader;
 
 public class Filter {
 
-    public Filter() throws IOException {
-    }
-
     public String suchparameter() throws IOException {
 
         InputStreamReader isr = new InputStreamReader(System.in);
