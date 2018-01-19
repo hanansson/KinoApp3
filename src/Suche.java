@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class SuchenUndErstellen {
+public class Suche {
 
     public void suche1 (String zeile, String eingabe, String eingabe1, String eingabe2, String eingabe3, String eingabe4, Filmeintrag neuerFilmeintrag) {
         String searchChar = ";";

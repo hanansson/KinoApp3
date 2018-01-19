@@ -23,7 +23,7 @@ public class Liste {
         while(brx.ready()) {
             if((zeile = brx.readLine()) != null) {
                 Filmeintrag neuerFilmeintrag = new Filmeintrag();
-                SuchenUndErstellen s = new SuchenUndErstellen();
+                Suche s = new Suche();
                 s.suche1 (zeile, eingabe, eingabe1, eingabe2, eingabe3, eingabe4, neuerFilmeintrag);
                 if (neuerFilmeintrag.name != null){
                     gesamtEinträge.add(neuerFilmeintrag);
