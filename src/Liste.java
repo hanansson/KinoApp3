@@ -13,7 +13,6 @@ public class Liste {
     public void Suchen() throws IOException {
 
         this.merkliste = new Favoriten();
-        this.merkliste.gesamtEinträge = gesamtEinträge;
 
         String zeile = null;
 

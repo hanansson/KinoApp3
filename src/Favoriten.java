@@ -7,12 +7,14 @@ public class Favoriten {
 
     public ArrayList<Filmeintrag> gesamtEinträge;
 
-    public void writeToFile(String s){
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Merkliste.txt"));
-                writer.write(s);
-                writer.close();
-        } catch(IOException e){
+
+    public void writeToFile(String s) {
+
+        try (FileWriter fw = new FileWriter("Merkliste.txt", true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            out.println(s);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
