@@ -21,7 +21,5 @@ public class Suche {
         filmeintragAttribute[3] = filmeintragAttribute[3].substring(filmeintragAttribute[3].indexOf("§") +1, filmeintragAttribute[3].indexOf("$"));
         neuerFilmeintrag.zeit= filmeintragAttribute[3];
         neuerFilmeintrag.preis= filmeintragAttribute[4];
-
-
     }
 }

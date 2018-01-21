@@ -5,4 +5,5 @@ public class Filmeintrag {
     String kino;
     String zeit;
     String preis;
+
 }
